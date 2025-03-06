@@ -23,6 +23,8 @@ jobs:
       - name: Install dependencies
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: npm ci
+      - name: Install dependencies again, maybe
+        run: npm install
       - name: Install Checkly CLI
         run: npm install -g checkly
       - name: Run Checkly Checks
