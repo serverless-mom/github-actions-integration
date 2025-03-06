@@ -1,4 +1,4 @@
-import { defineConfig } from 'checkly'
+const { defineConfig } = require('checkly');
 
 /**
  * See https://www.checklyhq.com/docs/cli/project-structure/
@@ -25,14 +25,14 @@ const config = defineConfig({
      */
     runtimeId: '2024.09',
     /* A glob pattern that matches the Checks inside your repo, see https://www.checklyhq.com/docs/cli/using-check-test-match/ */
-    checkMatch: '**/__checks__/**/*.check.ts',
+    checkMatch: '**/__checks__/**/*.check.js',
     /* Global configuration option for Playwright-powered checks. See https://www.checklyhq.com/docs/browser-checks/playwright-test/#global-configuration */
     playwrightConfig: {},
     browserChecks: {
-      /* A glob pattern matches any Playwright .spec.ts files and automagically creates a Browser Check. This way, you
+      /* A glob pattern matches any Playwright .spec.js files and automagically creates a Browser Check. This way, you
       * can just write native Playwright code. See https://www.checklyhq.com/docs/cli/using-check-test-match/
       * */
-      testMatch: '**/__checks__/**/*.spec.ts',
+      testMatch: '**/__checks__/**/*.spec.js',
     },
   },
   cli: {
@@ -45,4 +45,4 @@ const config = defineConfig({
   },
 })
 
-export default config
+module.exports = config;
